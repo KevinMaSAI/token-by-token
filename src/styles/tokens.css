@@ -1,0 +1,44 @@
+:root {
+  --bg: #0a0c10;
+  --surface: #111419;
+  --surface-2: #161a21;
+  --surface-3: #1c2129;
+  --line: #232a34;
+  --line-2: #2e3743;
+  --text: #e6e9ee;
+  --text-2: #9aa4b2;
+  --text-3: #5f6b7a;
+  --cyan: #5eead4;
+  --cyan-dim: #2dd4bf;
+  --amber: #fbbf24;
+  --amber-dim: #f59e0b;
+  --violet: #a78bfa;
+  --rose: #fb7185;
+  --green: #86efac;
+  --mono:
+    ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas,
+    monospace;
+  --sans:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+}
+:root {
+  --top-start: #12161c;
+  --top-end: #0d1014;
+  --brand-end: #0f766e;
+  --ink: #04211c;
+  --positive-bg: #142435;
+  --negative-bg: #301b25;
+  --selected-bg: #123b36;
+  --chosen-bg: #362c16;
+  --heat-0: #12303a;
+  --heat-1: #155e63;
+  --heat-2: #0d9488;
+  --heat-3: #2dd4bf;
+  --heat-4: #fbbf24;
+  --bar-start: #0d9488;
+  --bar-end: #2dd4bf;
+  --bar-top-start: #b45309;
+  --bar-top-end: #fbbf24;
+  --switch-bg: #0d3b38;
+}

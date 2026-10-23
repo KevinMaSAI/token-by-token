@@ -1,0 +1,8 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+*.tsbuildinfo
+public/models/*.json
+!public/models/example.config.json
+.env*
