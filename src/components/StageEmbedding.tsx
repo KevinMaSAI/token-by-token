@@ -29,7 +29,12 @@ export function StageEmbedding({
   useEffect(() => {
     let alive = true;
     setPage(0);
-    rpc<{ scores: Float32Array; order: number[] }>("similarity", { row: r })
+    rpc<{ scores: Float32Array; order: number[] }>("similarity", {
+      row: r,
+      matrix,
+      width: d,
+      count: f.c.vocabSize,
+    })
       .then((v) => {
         if (alive) setRanking(v);
       })
@@ -133,7 +138,7 @@ export function StageEmbedding({
         <div className="note warn">
           教学模型的初始权重未训练，靠近不等于语义相近。训练后再观察关系如何改变。
         </div>
-        <table data-table>
+        <table data-table aria-label="嵌入余弦排名">
           <thead>
             <tr>
               <th>词</th>

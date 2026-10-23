@@ -32,6 +32,8 @@ npm run test:e2e        # 独立 Chromium 浏览器中的完整交互测试
 
 `dist/` 可以部署到任何静态服务器。Web Worker 使用 ES module，因此请通过 HTTP/HTTPS 打开；不要双击 `index.html` 使用 file://。
 
+本仓库的 GitHub Pages 从 `main` 分支的 `docs/` 发布。修改源码后执行 `npm run build` 和 `node scripts/publish_static.mjs`，再提交并推送更新后的 `docs/`；GitHub Actions 会运行测试，Pages 会自动重新部署。
+
 ## 怎么玩
 
 1. 输入「你好 hello」，在顶部依次选择 0–9 的任一阶段。顶部展示十个阶段；生成循环作为第 10 阶段放在左栏和时间线。

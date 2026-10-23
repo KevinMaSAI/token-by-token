@@ -120,14 +120,23 @@ self.onmessage = async (e: MessageEvent) => {
         result: Math.fround(Math.fround(sum) + payload.bias),
       };
     } else if (type === "similarity") {
-      const row = Math.max(
-          0,
-          Math.min(config.vocabSize - 1, Number(payload.row)),
-        ),
-        d = config.d,
-        a = weights.embedding.subarray(row * d, (row + 1) * d);
-      const scores = Float32Array.from({ length: config.vocabSize }, (_, i) =>
-        cosine(a, weights.embedding.subarray(i * d, (i + 1) * d)),
+      // Inspect the displayed snapshot, including weight interventions and timeline replay.
+      const count = payload.count as number,
+        d = payload.width as number,
+        embedding = payload.matrix as Float32Array;
+      if (
+        !Number.isInteger(count) ||
+        !Number.isInteger(d) ||
+        count < 1 ||
+        d < 1 ||
+        !(embedding instanceof Float32Array) ||
+        embedding.length !== count * d
+      )
+        throw new Error("相似度张量形状无效");
+      const row = Math.max(0, Math.min(count - 1, Number(payload.row))),
+        a = embedding.subarray(row * d, (row + 1) * d);
+      const scores = Float32Array.from({ length: count }, (_, i) =>
+        cosine(a, embedding.subarray(i * d, (i + 1) * d)),
       );
       result = {
         scores,
